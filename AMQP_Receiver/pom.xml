@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>AMQP_Receiver</artifactId>
+	<artifactId>AMQP_Consumer</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>AMQP_Receiver</name>
-	<description>AMQP_Receiver_Application for EventProcessing</description>
+	<name>AMQP_Consumer</name>
+	<description>AMQP_Consumer_Application for EventProcessing</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
