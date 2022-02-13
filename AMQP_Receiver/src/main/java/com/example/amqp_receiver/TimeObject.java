@@ -1,4 +1,4 @@
-package com.example.AMQP_Receiver;
+package com.example.amqp_receiver;
 
 import java.io.Serializable;
 import java.sql.Timestamp;

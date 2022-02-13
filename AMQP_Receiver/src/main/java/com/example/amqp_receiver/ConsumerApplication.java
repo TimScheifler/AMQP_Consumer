@@ -1,4 +1,4 @@
-package com.example.AMQP_Receiver;
+package com.example.amqp_receiver;
 
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
@@ -48,7 +48,7 @@ public class ConsumerApplication {
         return new MessageListenerAdapter(receiver, "receiveMessage");
     }
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         SpringApplication.run(ConsumerApplication.class, args).close();
     }
 }

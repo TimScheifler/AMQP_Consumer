@@ -1,26 +1,23 @@
-package com.example.AMQP_Receiver;
+package com.example.amqp_receiver;
 
-import com.example.AMQP_Receiver.mongo.IMongoAPI;
-import com.example.AMQP_Receiver.mongo.MongoAPI;
+import com.example.amqp_receiver.mongo.IMongoAPI;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import jdk.jfr.Timespan;
 import org.bson.Document;
 
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Processor {
 
     private List<Document> commentDocuments = new ArrayList<>();
-    private final MongoCollection<Document> timeObject_collection;
+    private final MongoCollection<Document> timeObjectCollection;
     private final IMongoAPI mongoAPI;
     private int counter = 0;
 
     public Processor(final MongoDatabase mongoDatabase, final IMongoAPI mongoAPI){
         this.mongoAPI = mongoAPI;
-        this.timeObject_collection = mongoDatabase.getCollection("timeObjects");
+        this.timeObjectCollection = mongoDatabase.getCollection("FINAL_3_amqp_lag_0_drop_20");
     }
 
     public void processTimeObject(TimeObject timeObject){
@@ -28,7 +25,7 @@ public class Processor {
         commentDocuments.add(mongoAPI.writeTs(timeObject));
 
         if(counter > 10){
-            timeObject_collection.insertMany(commentDocuments);
+            timeObjectCollection.insertMany(commentDocuments);
             commentDocuments.clear();
         }
     }
